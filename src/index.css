@@ -1,1 +1,13 @@
 @import 'tailwindcss';
+/* declare it */
+:root {
+  --red-color: #c7390d;
+}
+
+/* use it */
+.button {
+  background-color: var(--red-color);
+}
+.border-color {
+  border: 1px solid var(--red-color);
+}
