@@ -28,7 +28,9 @@ export const Products = ({ className }) => {
                     className="cursor-pointer w-full bg-white border-color py-1.5 px-8 rounded-full "
                   >
                     <div className="flex gap-8">
-                      <div>P</div>
+                      <div>
+                        <img src="./images/icon-add-to-cart.svg" />
+                      </div>
                       <div>J</div>
                     </div>
                   </button>
