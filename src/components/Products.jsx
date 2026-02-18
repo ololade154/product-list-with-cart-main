@@ -3,31 +3,35 @@ import data from './data';
 import { IncrementIcon } from './IncrementIcon';
 import { DecrementIcon } from './DecrementIcon';
 
-export const Products = ({ className, updateCart }) => {
+export const Products = ({ className, updateCart, cart }) => {
   const [selected, setSelected] = useState({});
-  const [quantity, setQuantity] = useState({});
 
-  const increment = (id, item) => {
-    setQuantity((prev) => {
-      const newQty = (prev[id] || 0) + 1;
-      updateCart(item, newQty);
-      return { ...prev, [id]: newQty };
-    });
+  const getQuantity = (id) => {
+    const item = cart.find((i) => i.id === id);
+    return item ? item.quantity : 0;
   };
 
-  const decrement = (id, item) => {
-    setQuantity((prev) => {
-      const newQty = Math.max((prev[id] ?? 0) - 1, 0);
-      updateCart(item, newQty);
-      return { ...prev, [id]: newQty };
-    });
+  const increment = (item) => {
+    // Ensure controls show when first incrementing
+    if (!selected[item.id]) {
+      setSelected((prev) => ({ ...prev, [item.id]: true }));
+    }
+    updateCart(item, getQuantity(item.id) + 1);
+  };
+
+  const decrement = (item) => {
+    const current = getQuantity(item.id);
+    if (current > 0) {
+      updateCart(item, current - 1);
+      if (current - 1 === 0) {
+        setSelected((prev) => ({ ...prev, [item.id]: false }));
+      }
+    }
   };
 
   const toggleSelected = (id) => {
-    setSelected((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
+    setSelected((prev) => ({ ...prev, [id]: !prev[id] }));
+    updateCart(item, 1);
   };
 
   return (
@@ -41,50 +45,49 @@ export const Products = ({ className, updateCart }) => {
               <img
                 src={item.img.mobile}
                 className="block md:hidden w-full object-cover rounded-lg"
+                alt={item.name}
               />
               <img
                 src={item.img.desktop}
                 className="hidden md:block w-full object-cover rounded-lg"
+                alt={item.name}
               />
 
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 z-1 max-w-34 w-full">
                 {!selected[item.id] ? (
                   <button
-                    onClick={() => toggleSelected(item.id)}
+                    onClick={() => toggleSelected(item.id, item)}
                     className="cursor-pointer w-full bg-white border-color py-1 px-2 rounded-full"
                   >
                     <div className="flex gap-x-0.5 justify-center">
-                      <img src="./images/icon-add-to-cart.svg" />
+                      <img src="./images/icon-add-to-cart.svg" alt="Add" />
                       <span>Add to cart</span>
                     </div>
                   </button>
                 ) : (
-                  <button
-                    onClick={() => toggleSelected(item.id)}
-                    className="cursor-pointer w-full button py-1 px-2 rounded-full flex items-center justify-between "
-                  >
+                  <div className="cursor-pointer w-full button py-1 px-2 rounded-full flex items-center justify-between">
                     <DecrementIcon
                       onClick={(e) => {
-                        e.stopPropagation(); // Prevent toggling
-                        decrement(item.id, item);
+                        e.stopPropagation();
+                        decrement(item);
                       }}
                       width={10}
                       height={10}
                       className="white-button-color h-4 w-4 rounded-full"
                     />
                     <span className="text-white font-semibold">
-                      {quantity[item.id] || 0}
+                      {getQuantity(item.id)}
                     </span>
                     <IncrementIcon
                       onClick={(e) => {
-                        e.stopPropagation(); // Prevent toggling
-                        increment(item.id, item);
+                        e.stopPropagation();
+                        increment(item);
                       }}
                       width={10}
                       height={10}
                       className="white-bg red-button-color h-4 w-4 rounded-full"
                     />
-                  </button>
+                  </div>
                 )}
               </div>
             </div>

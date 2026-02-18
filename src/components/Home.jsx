@@ -6,15 +6,24 @@ export const Home = () => {
   const [cart, setCart] = useState([]);
 
   const updateCart = (item, quantity) => {
-    setCart((prev) => {
-      const existing = prev.find((p) => p.id === item.id);
-
-      if (existing) {
-        return prev.map((p) => (p.id === item.id ? { ...p, quantity } : p));
+    setCart((prevCart) => {
+      const exists = prevCart.find((i) => i.id === item.id);
+      if (exists) {
+        return prevCart.map((i) => (i.id === item.id ? { ...i, quantity } : i));
+      } else {
+        return [...prevCart, { ...item, quantity }];
       }
-
-      return [...prev, { ...item, quantity }];
     });
+  };
+
+  const removeFromCart = (id) => {
+    setCart((prevCart) =>
+      prevCart
+        .map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item,
+        )
+        .filter((item) => item.quantity > 0),
+    );
   };
 
   return (
@@ -23,10 +32,12 @@ export const Home = () => {
         <Products
           className="flex-1 md:border-2 md:border-b-emerald-700 "
           updateCart={updateCart}
+          cart={cart}
         />
         <Cart
-          className="bg-blue-700 border-2 border-red-500 md:w-1/4 md:h-50 "
+          className="bg-blue-700 border-2 border-red-500 md:w-1/4 md:h-1/3  p-4 rounded-lg"
           cart={cart}
+          removeFromCart={removeFromCart}
         />
       </div>
     </>
