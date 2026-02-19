@@ -1,12 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
 @import 'tailwindcss';
-/* declare it */
+
 :root {
   --red-color: #c7390d;
   --white-color: #ffffff;
+  --rose-color-50: #fdf8f5;
+  --rose-color-100: #f2e8e4;
+  --rose-color-300: #c6a99f;
+  --rose-color-400: #ab8880;
+  --rose-color-500: #7d5c53;
+  --rose-color-900: #261009;
+}
+.rose-color-900 {
+  color: var(--rose-color-900);
+}
+.rose-color-300 {
+  color: var(--rose-color-300);
+}
+.rose-color-100 {
+  color: var(--rose-color-100);
+}
+.rose-color-400 {
+  color: var(--rose-color-400);
+}
+.rose-bgcolor-50 {
+  background-color: var(--rose-color-50);
 }
 
-/* use it */
 .button {
   background-color: var(--red-color);
 }
@@ -16,16 +36,26 @@
 .red-hat-text {
   font-family: 'Red Hat Text', sans-serif;
 }
-.button-color {
-  color: var(--red-color);
-}
+
 .white-button-color {
   color: var(--white-color);
   border: 1px solid var(--white-color);
 }
-.red-button-color {
+.white-text {
+  color: var(--white-color);
+}
+.red-button-color,
+.red-text,
+.button-color {
   color: var(--red-color);
 }
+
 .white-bg {
   background-color: var(--white-color);
+}
+.item-selected.active {
+  border: 2px solid var(--red-color);
+}
+.body-color {
+  background-color: var(--rose-color-50);
 }

@@ -28,14 +28,10 @@ export const Home = () => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-6 md:gap-4 md:p-8 py-4 px-6 md:w-full">
-        <Products
-          className="flex-1 md:border-2 md:border-b-emerald-700 "
-          updateCart={updateCart}
-          cart={cart}
-        />
+      <div className="flex flex-col md:flex-row gap-6 md:gap-4 md:p-8 py-4 px-6 md:w-full body-color">
+        <Products className="flex-1 " updateCart={updateCart} cart={cart} />
         <Cart
-          className="bg-blue-700 border-2 border-red-500 md:w-1/4 md:h-1/3  p-4 rounded-lg"
+          className="bg-white md:w-1/4 md:h-1/3 p-6 rounded-lg"
           cart={cart}
           removeFromCart={removeFromCart}
         />
