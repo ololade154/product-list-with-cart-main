@@ -142,13 +142,7 @@ export const Products = ({ className, updateCart, cart }) => {
 
   return (
     <div className={className}>
-      <Toaster
-        position="top-center "
-        containerStyle={{
-          top: '50%',
-          transform: 'translateY(-50%)',
-        }}
-      />
+      <Toaster position="top-center " />
 
       <h1 className="red-hat-text text-[45px] mb-2">Desserts</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4">
