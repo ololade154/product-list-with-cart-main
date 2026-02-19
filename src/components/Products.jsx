@@ -39,7 +39,7 @@ export const Products = ({ className, updateCart, cart }) => {
   return (
     <div className={className}>
       <Toaster position="top-center " />
-      <h1 className="red-hat-text text-[45px] md:text-[35px] mb-4 font-bold rose-color-900">
+      <h1 className="red-hat-text text-[30px] md:text-[35px] mb-4 font-bold rose-color-900">
         Desserts
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-5">
