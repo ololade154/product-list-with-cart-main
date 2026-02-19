@@ -38,7 +38,17 @@ export const Products = ({ className, updateCart, cart }) => {
 
   return (
     <div className={className}>
-      <Toaster position="top-center " />
+      <Toaster
+        position="top-center "
+        toastOptions={{
+          style: {
+            color: 'var(--rose-color-900)',
+            fontFamily: 'Red Hat Text, sans-serif',
+            fontWeight: 'bold',
+            fontSize: '14px',
+          },
+        }}
+      />
       <h1 className="red-hat-text text-[30px] md:text-[35px] mb-4 font-bold rose-color-900">
         Desserts
       </h1>

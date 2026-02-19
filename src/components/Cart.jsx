@@ -30,14 +30,22 @@ export const Cart = ({ cart, className, removeFromCart }) => {
           {cart.map((item) => (
             <div
               key={item.id}
-              className="flex justify-between mb-2 border-b-2 border-b-fuchsia-600"
+              className="flex justify-between mb-2 rose-border"
             >
-              <div className="flex flex-col">
-                <span>{item.name}</span>
-                <div className="flex gap-2 mb-2">
-                  <div>{item.quantity}x</div>
-                  <div>@{item.price}</div>
-                  <div>${(item.price * item.quantity).toFixed(2)}</div>
+              <div className="flex flex-col gap-1">
+                <span className="red-hat-text font-bold md:text-[14px] text-[16px]">
+                  {item.name}
+                </span>
+                <div className="flex items-center gap-2.5 mb-2">
+                  <div className="red-text red-hat-text font-bold md:text-[12px] text-[14px]">
+                    {item.quantity}x
+                  </div>
+                  <div className="rose-color-400 red-hat-text md:text-[13px] text-[14px]">
+                    @{item.price}
+                  </div>
+                  <div className="rose-color-400 red-hat-text font-semibold md:text-[13px] text-[14px]">
+                    ${(item.price * item.quantity).toFixed(2)}
+                  </div>
                 </div>
               </div>
               <div>
@@ -48,7 +56,7 @@ export const Cart = ({ cart, className, removeFromCart }) => {
                   }}
                   width={10}
                   height={10}
-                  className="white-button-color h-4 w-4 rounded-full"
+                  className="remove-button-color h-4 w-4 rounded-full cursor-pointer"
                 />
               </div>
             </div>
@@ -56,8 +64,12 @@ export const Cart = ({ cart, className, removeFromCart }) => {
 
           {/* Order Total */}
           <div className="flex items-center justify-between mb-6">
-            <div>Order Total</div>
-            <div>${totalPrice.toFixed(2)}</div>
+            <div className="rose-color-900 red-hat-text md:text-[13px] text-[14px]">
+              Order Total
+            </div>
+            <div className="rose-color-900 red-hat-text font-bold md:text-[19px] text-[14px]">
+              ${totalPrice.toFixed(2)}
+            </div>
           </div>
 
           {/* Delivery Info */}
