@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { RemoveIcon } from './RemoveIcon';
 import { OrderModal } from './OrderModal';
 
-export const Cart = ({ cart, className, removeFromCart }) => {
+export const Cart = ({ cart, className, removeFromCart, clearCart }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const totalPrice = cart.reduce(
@@ -100,7 +100,10 @@ export const Cart = ({ cart, className, removeFromCart }) => {
           {/* Order Modal */}
           <OrderModal
             isOpen={modalIsOpen}
-            onClose={() => setModalIsOpen(false)}
+            onClose={() => {
+              setModalIsOpen(false);
+              clearCart();
+            }}
             cart={cart}
             totalPrice={totalPrice}
           />

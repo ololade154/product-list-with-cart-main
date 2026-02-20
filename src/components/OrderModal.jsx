@@ -14,6 +14,7 @@ const desktopStyles = {
     padding: '2rem',
     width: '100%',
     maxWidth: '450px',
+    height: '100vh',
   },
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
