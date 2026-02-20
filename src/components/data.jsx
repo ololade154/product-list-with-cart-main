@@ -8,7 +8,7 @@ const data = [
     },
     category: 'Waffle',
     name: 'Waffle with Berries',
-    price: 6.5,
+    price: '6.50',
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const data = [
     },
     category: 'Creme Brulee',
     name: 'Vanilla Bean Creme Brulee',
-    price: 7.0,
+    price: '7.00',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const data = [
     },
     category: 'Macaron',
     name: 'Macaron Mix of Five',
-    price: 8.0,
+    price: '8.00',
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const data = [
     },
     category: 'Tiramisu',
     name: 'Classic Tiramisu',
-    price: 5.5,
+    price: '5.00',
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const data = [
     },
     category: 'Baklava',
     name: 'Pistachio Baklava',
-    price: 4.0,
+    price: '4.00',
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ const data = [
     },
     category: 'Pie',
     name: 'Lemon Meringue Pie',
-    price: 5.0,
+    price: '5.00',
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ const data = [
     },
     category: 'Cake',
     name: 'Red Velvet Cake',
-    price: 4.5,
+    price: '4.00',
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ const data = [
     },
     category: 'Brownie',
     name: 'Salted Caramel Brownie',
-    price: 5.5,
+    price: '5.50',
   },
   {
     id: 9,
@@ -96,7 +96,7 @@ const data = [
     },
     category: 'Panna Cotta',
     name: 'Vanilla Panna Cotta',
-    price: 6.5,
+    price: '6.50',
   },
 ];
 export default data;
