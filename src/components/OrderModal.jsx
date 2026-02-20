@@ -30,7 +30,7 @@ const mobileStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     borderRadius: '12px',
-    padding: '2rem',
+    padding: '1.5rem',
     width: '90%',
     maxWidth: '500px',
   },
