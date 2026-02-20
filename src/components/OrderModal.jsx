@@ -4,8 +4,8 @@ Modal.setAppElement('#root');
 
 const desktopStyles = {
   content: {
-    top: '55%',
-    left: '60%',
+    top: '50%',
+    left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
